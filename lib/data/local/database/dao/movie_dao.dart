@@ -20,15 +20,15 @@ abstract class MovieDao {
   @insert
   Future<void> insertUpcomingMovies(List<UpcomingMovieDto> upcomingMovies);
 
-  @Query('SELECT * FROM PopularMovie')
+  @Query('SELECT * FROM POPULAR_MOVIES')
   Future<List<PopularMovieDto>> getPopularMovies();
 
-  @Query('SELECT * FROM TopRatedMovie')
+  @Query('SELECT * FROM TOP_RATED_MOVIES')
   Future<List<TopRatedMovieDto>> getTopRatedMovies();
 
-  @Query('SELECT * FROM NowPlayingMovie')
+  @Query('SELECT * FROM NOW_PLAYING_MOVIES')
   Future<List<NowPlayingMovieDto>> getNowPlayingMovies();
 
-  @Query('SELECT * FROM UpcomingMovie')
+  @Query('SELECT * FROM UPCOMING_MOVIES')
   Future<List<UpcomingMovieDto>> getUpcomingMovies();
 }

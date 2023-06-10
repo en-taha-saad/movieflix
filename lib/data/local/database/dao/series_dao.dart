@@ -20,15 +20,15 @@ abstract class SeriesDao {
     List<AiringTodaySeriesDto> airingTodaySeries,
   );
 
-  @Query('SELECT * FROM PopularSeries')
+  @Query('SELECT * FROM POPULAR_SERIES')
   Future<List<PopularSeriesDto>> getPopularSeries();
 
-  @Query('SELECT * FROM TopRatedSeries')
+  @Query('SELECT * FROM TOP_RATED_SERIES')
   Future<List<TopRatedSeriesDto>> getTopRatedSeries();
 
-  @Query('SELECT * FROM OnTheAirSeries')
+  @Query('SELECT * FROM ON_THE_AIR_SERIES')
   Future<List<OnTheAirSeriesDto>> getOnTheAirSeries();
 
-  @Query('SELECT * FROM AiringTodaySeries')
+  @Query('SELECT * FROM AIRING_TODAY_SERIES')
   Future<List<AiringTodaySeriesDto>> getAiringTodaySeries();
 }
