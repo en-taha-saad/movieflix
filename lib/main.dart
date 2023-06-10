@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:movieflix/di/movieflix_application.dart';
 
 void main() {
+  configureDependencies();
   runApp(const MyApp());
 }
 

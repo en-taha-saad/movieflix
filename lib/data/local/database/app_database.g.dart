@@ -196,7 +196,7 @@ class _$MovieDao extends MovieDao {
 
   @override
   Future<List<PopularMovieDto>> getPopularMovies() async {
-    return _queryAdapter.queryList('SELECT * FROM PopularMovie',
+    return _queryAdapter.queryList('SELECT * FROM POPULAR_MOVIES',
         mapper: (Map<String, Object?> row) => PopularMovieDto(
             row['id'] as int,
             row['title'] as String,
@@ -208,7 +208,7 @@ class _$MovieDao extends MovieDao {
 
   @override
   Future<List<TopRatedMovieDto>> getTopRatedMovies() async {
-    return _queryAdapter.queryList('SELECT * FROM TopRatedMovie',
+    return _queryAdapter.queryList('SELECT * FROM TOP_RATED_MOVIES',
         mapper: (Map<String, Object?> row) => TopRatedMovieDto(
             row['id'] as int,
             row['title'] as String,
@@ -220,7 +220,7 @@ class _$MovieDao extends MovieDao {
 
   @override
   Future<List<NowPlayingMovieDto>> getNowPlayingMovies() async {
-    return _queryAdapter.queryList('SELECT * FROM NowPlayingMovie',
+    return _queryAdapter.queryList('SELECT * FROM NOW_PLAYING_MOVIES',
         mapper: (Map<String, Object?> row) => NowPlayingMovieDto(
             row['id'] as int,
             row['title'] as String,
@@ -232,7 +232,7 @@ class _$MovieDao extends MovieDao {
 
   @override
   Future<List<UpcomingMovieDto>> getUpcomingMovies() async {
-    return _queryAdapter.queryList('SELECT * FROM UpcomingMovie',
+    return _queryAdapter.queryList('SELECT * FROM UPCOMING_MOVIES',
         mapper: (Map<String, Object?> row) => UpcomingMovieDto(
             row['id'] as int,
             row['title'] as String,
@@ -345,7 +345,7 @@ class _$SeriesDao extends SeriesDao {
 
   @override
   Future<List<PopularSeriesDto>> getPopularSeries() async {
-    return _queryAdapter.queryList('SELECT * FROM PopularSeries',
+    return _queryAdapter.queryList('SELECT * FROM POPULAR_SERIES',
         mapper: (Map<String, Object?> row) => PopularSeriesDto(
             row['id'] as int,
             row['title'] as String,
@@ -359,7 +359,7 @@ class _$SeriesDao extends SeriesDao {
 
   @override
   Future<List<TopRatedSeriesDto>> getTopRatedSeries() async {
-    return _queryAdapter.queryList('SELECT * FROM TopRatedSeries',
+    return _queryAdapter.queryList('SELECT * FROM TOP_RATED_SERIES',
         mapper: (Map<String, Object?> row) => TopRatedSeriesDto(
             row['id'] as int,
             row['title'] as String,
@@ -373,7 +373,7 @@ class _$SeriesDao extends SeriesDao {
 
   @override
   Future<List<OnTheAirSeriesDto>> getOnTheAirSeries() async {
-    return _queryAdapter.queryList('SELECT * FROM OnTheAirSeries',
+    return _queryAdapter.queryList('SELECT * FROM ON_THE_AIR_SERIES',
         mapper: (Map<String, Object?> row) => OnTheAirSeriesDto(
             row['id'] as int,
             row['title'] as String,
@@ -387,7 +387,7 @@ class _$SeriesDao extends SeriesDao {
 
   @override
   Future<List<AiringTodaySeriesDto>> getAiringTodaySeries() async {
-    return _queryAdapter.queryList('SELECT * FROM AiringTodaySeries',
+    return _queryAdapter.queryList('SELECT * FROM AIRING_TODAY_SERIES',
         mapper: (Map<String, Object?> row) => AiringTodaySeriesDto(
             row['id'] as int,
             row['title'] as String,
