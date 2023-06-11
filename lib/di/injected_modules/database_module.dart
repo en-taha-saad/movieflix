@@ -6,16 +6,16 @@ import 'package:movieflix/data/local/database/dao/user_dao.dart';
 
 @module
 abstract class DatabaseModule {
-  @lazySingleton
-  AppDatabase get appDatabase => AppDatabase(databaseName: "FLIX_DATABASE");
+  @preResolve
+  Future<AppDatabase> get appDatabase async =>
+      await $FloorAppDatabase.databaseBuilder('app_database.db').build();
 
-  @lazySingleton
-  MovieDao get movieDao => appDatabase.movieDao();
+  @singleton
+  MovieDao getMovieDao(AppDatabase appDatabase) => appDatabase.movieDao;
 
-  @lazySingleton
-  SeriesDao get seriesDao => appDatabase.seriesDao();
+  @singleton
+  SeriesDao getTvShowDao(AppDatabase appDatabase) => appDatabase.seriesDao;
 
-  @lazySingleton
-  UserDao get userDao => appDatabase.userDao();
+  @singleton
+  UserDao getUserDao(AppDatabase appDatabase) => appDatabase.userDao;
 }
-
