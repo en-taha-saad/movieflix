@@ -1,4 +1,4 @@
-import 'package:movieflix/repository/preferene_data_source.dart';
+import 'package:movieflix/repository/preference_data_source.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PreferencesDataSourceImpl implements PreferencesDataSource {
