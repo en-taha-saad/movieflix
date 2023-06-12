@@ -74,7 +74,9 @@
         "lib/data/remote/resources/auth/guest_session_resource.g.dart": true,
         "lib/data/remote/resources/auth/login_request.g.dart": true,
         "lib/data/remote/resources/auth/session_resource.g.dart": true,
-        "lib/data/remote/resources/auth/token_resource.g.dart": true
+        "lib/data/remote/resources/auth/token_resource.g.dart": true,
+        "lib/data/remote/resources/image/image_resource.g.dart": true,
+        "lib/data/remote/resources/image/images_resource.g.dart": true
     },
     "hide-files.files": [
         "lib/data/remote/resources/api_response.g.dart",
@@ -143,6 +145,8 @@
         "lib/data/remote/resources/auth/guest_session_resource.g.dart",
         "lib/data/remote/resources/auth/login_request.g.dart",
         "lib/data/remote/resources/auth/session_resource.g.dart",
-        "lib/data/remote/resources/auth/token_resource.g.dart"
+        "lib/data/remote/resources/auth/token_resource.g.dart",
+        "lib/data/remote/resources/image/image_resource.g.dart",
+        "lib/data/remote/resources/image/images_resource.g.dart"
     ]
 }
