@@ -98,7 +98,9 @@
         "lib/data/remote/resources/series/series_details_resource.g.dart": true,
         "lib/data/remote/resources/series/series_episode_details_resource.g.dart": true,
         "lib/data/remote/resources/series/series_resource.g.dart": true,
-        "lib/data/remote/resources/series/session_details_resource.g.dart": true
+        "lib/data/remote/resources/series/session_details_resource.g.dart": true,
+        "lib/data/local/database/app_database.g.dart": true,
+        "lib/data/remote/api_service.g.dart": true
     },
     "hide-files.files": [
         "lib/data/remote/resources/api_response.g.dart",
@@ -191,6 +193,8 @@
         "lib/data/remote/resources/series/series_details_resource.g.dart",
         "lib/data/remote/resources/series/series_episode_details_resource.g.dart",
         "lib/data/remote/resources/series/series_resource.g.dart",
-        "lib/data/remote/resources/series/session_details_resource.g.dart"
+        "lib/data/remote/resources/series/session_details_resource.g.dart",
+        "lib/data/local/database/app_database.g.dart",
+        "lib/data/remote/api_service.g.dart"
     ]
 }
