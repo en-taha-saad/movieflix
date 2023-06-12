@@ -82,7 +82,13 @@
         "lib/data/remote/resources/movie/belongs_to_collection_resource.g.dart": true,
         "lib/data/remote/resources/movie/keywords_resource.g.dart": true,
         "lib/data/remote/resources/movie/movie_details_resource.g.dart": true,
-        "lib/data/remote/resources/movie/movie_resource.g.dart": true
+        "lib/data/remote/resources/movie/movie_resource.g.dart": true,
+        "lib/data/remote/resources/person/person_movie_credits_resource.g.dart": true,
+        "lib/data/remote/resources/person/person_resource.g.dart": true,
+        "lib/data/remote/resources/review/author_details_resource.g.dart": true,
+        "lib/data/remote/resources/review/review_resource.g.dart": true,
+        "lib/data/remote/resources/trailer/trailer_details_resource.g.dart": true,
+        "lib/data/remote/resources/trailer/trailers_resource.g.dart": true
     },
     "hide-files.files": [
         "lib/data/remote/resources/api_response.g.dart",
@@ -159,6 +165,12 @@
         "lib/data/remote/resources/movie/belongs_to_collection_resource.g.dart",
         "lib/data/remote/resources/movie/keywords_resource.g.dart",
         "lib/data/remote/resources/movie/movie_details_resource.g.dart",
-        "lib/data/remote/resources/movie/movie_resource.g.dart"
+        "lib/data/remote/resources/movie/movie_resource.g.dart",
+        "lib/data/remote/resources/person/person_movie_credits_resource.g.dart",
+        "lib/data/remote/resources/person/person_resource.g.dart",
+        "lib/data/remote/resources/review/author_details_resource.g.dart",
+        "lib/data/remote/resources/review/review_resource.g.dart",
+        "lib/data/remote/resources/trailer/trailer_details_resource.g.dart",
+        "lib/data/remote/resources/trailer/trailers_resource.g.dart"
     ]
 }
