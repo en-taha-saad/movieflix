@@ -64,7 +64,17 @@
         "lib/data/remote/resources/production_company_resource.g.dart": true,
         "lib/data/remote/resources/production_country_resource.g.dart": true,
         "lib/data/remote/resources/spoken_language_resource.g.dart": true,
-        "lib/data/remote/resources/pagination.g.dart": true
+        "lib/data/remote/resources/pagination.g.dart": true,
+        "lib/data/remote/resources/account/account_resource.g.dart": true,
+        "lib/data/remote/resources/account/add_to_watch_list_request.g.dart": true,
+        "lib/data/remote/resources/account/avatar_path_resource.g.dart": true,
+        "lib/data/remote/resources/account/avatar_resource.g.dart": true,
+        "lib/data/remote/resources/account/gravatar_resource.g.dart": true,
+        "lib/data/remote/resources/account/mark_as_favorite_request.g.dart": true,
+        "lib/data/remote/resources/auth/guest_session_resource.g.dart": true,
+        "lib/data/remote/resources/auth/login_request.g.dart": true,
+        "lib/data/remote/resources/auth/session_resource.g.dart": true,
+        "lib/data/remote/resources/auth/token_resource.g.dart": true
     },
     "hide-files.files": [
         "lib/data/remote/resources/api_response.g.dart",
@@ -123,6 +133,16 @@
         "lib/data/remote/resources/production_company_resource.g.dart",
         "lib/data/remote/resources/production_country_resource.g.dart",
         "lib/data/remote/resources/spoken_language_resource.g.dart",
-        "lib/data/remote/resources/pagination.g.dart"
+        "lib/data/remote/resources/pagination.g.dart",
+        "lib/data/remote/resources/account/account_resource.g.dart",
+        "lib/data/remote/resources/account/add_to_watch_list_request.g.dart",
+        "lib/data/remote/resources/account/avatar_path_resource.g.dart",
+        "lib/data/remote/resources/account/avatar_resource.g.dart",
+        "lib/data/remote/resources/account/gravatar_resource.g.dart",
+        "lib/data/remote/resources/account/mark_as_favorite_request.g.dart",
+        "lib/data/remote/resources/auth/guest_session_resource.g.dart",
+        "lib/data/remote/resources/auth/login_request.g.dart",
+        "lib/data/remote/resources/auth/session_resource.g.dart",
+        "lib/data/remote/resources/auth/token_resource.g.dart"
     ]
 }
