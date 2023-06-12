@@ -1,5 +1,6 @@
 // ignore: depend_on_referenced_packages
 import 'package:json_annotation/json_annotation.dart';
+import 'package:movieflix/data/remote/resources/movie/movie_resource.dart';
 
 part 'custom_list_details_resource.g.dart';
 
@@ -18,8 +19,7 @@ class CustomListDetailsResource {
   @JsonKey(name: 'item_count')
   final int? itemCount;
   @JsonKey(name: 'items')
-  // final List<MovieResource?>? items;
-  final List? items;
+  final List<MovieResource?>? items;
   @JsonKey(name: 'name')
   final String? name;
   @JsonKey(name: 'poster_path')

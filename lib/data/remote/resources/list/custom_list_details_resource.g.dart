@@ -15,7 +15,11 @@ CustomListDetailsResource _$CustomListDetailsResourceFromJson(
       id: json['id'] as String?,
       iso6391: json['iso_639_1'] as String?,
       itemCount: json['item_count'] as int?,
-      items: json['items'] as List<dynamic>?,
+      items: (json['items'] as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : MovieResource.fromJson(e as Map<String, dynamic>))
+          .toList(),
       name: json['name'] as String?,
       posterPath: json['poster_path'] as String?,
     );

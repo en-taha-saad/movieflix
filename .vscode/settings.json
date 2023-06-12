@@ -78,7 +78,11 @@
         "lib/data/remote/resources/image/image_resource.g.dart": true,
         "lib/data/remote/resources/image/images_resource.g.dart": true,
         "lib/data/remote/resources/list/create_list_request.g.dart": true,
-        "lib/data/remote/resources/list/custom_list_details_resource.g.dart": true
+        "lib/data/remote/resources/list/custom_list_details_resource.g.dart": true,
+        "lib/data/remote/resources/movie/belongs_to_collection_resource.g.dart": true,
+        "lib/data/remote/resources/movie/keywords_resource.g.dart": true,
+        "lib/data/remote/resources/movie/movie_details_resource.g.dart": true,
+        "lib/data/remote/resources/movie/movie_resource.g.dart": true
     },
     "hide-files.files": [
         "lib/data/remote/resources/api_response.g.dart",
@@ -151,6 +155,10 @@
         "lib/data/remote/resources/image/image_resource.g.dart",
         "lib/data/remote/resources/image/images_resource.g.dart",
         "lib/data/remote/resources/list/create_list_request.g.dart",
-        "lib/data/remote/resources/list/custom_list_details_resource.g.dart"
+        "lib/data/remote/resources/list/custom_list_details_resource.g.dart",
+        "lib/data/remote/resources/movie/belongs_to_collection_resource.g.dart",
+        "lib/data/remote/resources/movie/keywords_resource.g.dart",
+        "lib/data/remote/resources/movie/movie_details_resource.g.dart",
+        "lib/data/remote/resources/movie/movie_resource.g.dart"
     ]
 }
