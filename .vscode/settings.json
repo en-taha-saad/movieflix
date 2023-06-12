@@ -88,7 +88,17 @@
         "lib/data/remote/resources/review/author_details_resource.g.dart": true,
         "lib/data/remote/resources/review/review_resource.g.dart": true,
         "lib/data/remote/resources/trailer/trailer_details_resource.g.dart": true,
-        "lib/data/remote/resources/trailer/trailers_resource.g.dart": true
+        "lib/data/remote/resources/trailer/trailers_resource.g.dart": true,
+        "lib/data/remote/resources/series/created_by_resource.g.dart": true,
+        "lib/data/remote/resources/series/crew_resource.g.dart": true,
+        "lib/data/remote/resources/series/episode_resource.g.dart": true,
+        "lib/data/remote/resources/series/guest_star_resource.g.dart": true,
+        "lib/data/remote/resources/series/network_resource.g.dart": true,
+        "lib/data/remote/resources/series/season_resource.g.dart": true,
+        "lib/data/remote/resources/series/series_details_resource.g.dart": true,
+        "lib/data/remote/resources/series/series_episode_details_resource.g.dart": true,
+        "lib/data/remote/resources/series/series_resource.g.dart": true,
+        "lib/data/remote/resources/series/session_details_resource.g.dart": true
     },
     "hide-files.files": [
         "lib/data/remote/resources/api_response.g.dart",
@@ -171,6 +181,16 @@
         "lib/data/remote/resources/review/author_details_resource.g.dart",
         "lib/data/remote/resources/review/review_resource.g.dart",
         "lib/data/remote/resources/trailer/trailer_details_resource.g.dart",
-        "lib/data/remote/resources/trailer/trailers_resource.g.dart"
+        "lib/data/remote/resources/trailer/trailers_resource.g.dart",
+        "lib/data/remote/resources/series/created_by_resource.g.dart",
+        "lib/data/remote/resources/series/crew_resource.g.dart",
+        "lib/data/remote/resources/series/episode_resource.g.dart",
+        "lib/data/remote/resources/series/guest_star_resource.g.dart",
+        "lib/data/remote/resources/series/network_resource.g.dart",
+        "lib/data/remote/resources/series/season_resource.g.dart",
+        "lib/data/remote/resources/series/series_details_resource.g.dart",
+        "lib/data/remote/resources/series/series_episode_details_resource.g.dart",
+        "lib/data/remote/resources/series/series_resource.g.dart",
+        "lib/data/remote/resources/series/session_details_resource.g.dart"
     ]
 }
