@@ -18,6 +18,7 @@ extension GetItInjectableX on _i1.GetIt {
     String? environment,
     _i2.EnvironmentFilter? environmentFilter,
   }) {
+    // ignore: unused_local_variable
     final gh = _i2.GetItHelper(
       this,
       environment,
