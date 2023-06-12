@@ -7,12 +7,13 @@ environment:
   sdk: ">=3.0.2 <4.0.0"
 
 dependencies:
+  floor: ^1.4.2
   flutter:
     sdk: flutter
-  floor: ^1.4.2
   get_it: ^7.6.0
   injectable: ^2.1.2
   injectable_generator: ^2.1.6
+  json_serializable: ^6.7.0
   shared_preferences: ^2.1.2
 
 dev_dependencies:
