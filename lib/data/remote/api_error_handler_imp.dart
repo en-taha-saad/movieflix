@@ -1,10 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'dart:convert';
 import 'package:movieflix/data/remote/api_error_handler.dart';
 import 'package:movieflix/data/remote/resources/api_response.dart';
 import 'package:movieflix/data/remote/tmdb_status_code.dart';
 import 'package:movieflix/domain/utils/flix_exception.dart';
 
+@injectable
 class ApiErrorHandlerImpl implements ApiErrorHandler {
   @override
   FlixException getFlixException(DioException dioError) {

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:movieflix/data/remote/api_error_handler.dart';
 import 'package:movieflix/data/remote/api_service.dart';
 import 'package:movieflix/data/remote/resources/account/account_resource.dart';
@@ -27,6 +28,7 @@ import 'package:movieflix/data/remote/resources/trailer/trailers_resource.dart';
 import 'package:movieflix/domain/utils/flix_exception.dart';
 import 'package:movieflix/repository/remote_data_source.dart';
 
+@injectable
 class RemoteDataSourceImpl implements RemoteDataSource {
   final APIService apiService;
   final ApiErrorHandler apiErrorHandler;

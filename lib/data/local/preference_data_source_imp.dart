@@ -1,6 +1,8 @@
+import 'package:injectable/injectable.dart';
 import 'package:movieflix/repository/preference_data_source.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+@injectable
 class PreferencesDataSourceImpl implements PreferencesDataSource {
   final SharedPreferences prefs;
 

@@ -1,30 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:movieflix/data/remote/remote_data_source_imp.dart';
 import 'package:movieflix/di/movieflix_application.dart';
 
-void main() {
-  configureDependencies();
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureDependencies();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final remoteDataSource = getIt<RemoteDataSourceImpl>();
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(
+        useMaterial3: true,
+      ),
+      themeMode: ThemeMode.dark,
+      home: Scaffold(
+        body: Center(
+          child: TextButton(
+            onPressed: () {
+              remoteDataSource.getPopularMovies(1);
+            },
+            child: const Text('Click'),
+          ),
+        ),
+      ),
+    );
   }
 }

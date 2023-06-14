@@ -1,3 +1,4 @@
+import 'package:injectable/injectable.dart';
 import 'package:movieflix/data/local/database/dao/movie_dao.dart';
 import 'package:movieflix/data/local/database/dao/series_dao.dart';
 import 'package:movieflix/data/local/database/dao/user_dao.dart';
@@ -12,6 +13,7 @@ import 'package:movieflix/data/local/database/entity/series_dtos/top_rated_serie
 import 'package:movieflix/data/local/database/entity/user_dto.dart';
 import 'package:movieflix/repository/local_data_source.dart';
 
+@injectable
 class LocalDataSourceImpl implements LocalDataSource {
   final MovieDao movieDao;
   final UserDao userDao;

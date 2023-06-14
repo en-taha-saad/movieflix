@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:movieflix/data/remote/resources/account/account_resource.dart';
 import 'package:movieflix/data/remote/resources/account/add_to_watch_list_request.dart';
 import 'package:movieflix/data/remote/resources/account/mark_as_favorite_request.dart';
@@ -24,6 +25,7 @@ import 'package:retrofit/retrofit.dart';
 
 part 'api_service.g.dart';
 
+@factoryMethod
 @RestApi(baseUrl: "{baseUrl}")
 abstract class APIService {
   final Dio dio;
