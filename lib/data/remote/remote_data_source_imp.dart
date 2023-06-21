@@ -351,7 +351,9 @@ class RemoteDataSourceImpl implements RemoteDataSource {
 
   Future<T> wrapApiCall<T>(Future<T> Function() call) async {
     try {
-      final response = await call();
+      final response = await call().then((value) {
+        print("value $value");
+      });
       if (response is Response && response.statusCode == 200) {
         return response.data as T;
       } else {
@@ -363,7 +365,10 @@ class RemoteDataSourceImpl implements RemoteDataSource {
     } on FormatException {
       throw NoInternet();
     } on DioException {
-      throw NoInternet();
+      throw DioException(
+        requestOptions: RequestOptions(),
+        error: "dfdgdg", 
+      );
     } catch (e) {
       rethrow;
     }

@@ -7,9 +7,14 @@ part of 'api_service.dart';
 // **************************************************************************
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
+APIService createAPIService(Dio dio) => _APIService(
+      dio,
+      dio,
+      baseUrl: "https://api.themoviedb.org/3/",
+    );
 
-class APIServiceImp extends APIService {
-  APIServiceImp(
+class _APIService extends APIService {
+  _APIService(
     this._dio,
     Dio dio, {
     this.baseUrl,
@@ -39,7 +44,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = TokenResource.fromJson(_result.data!);
     return value;
   }
@@ -64,7 +73,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = TokenResource.fromJson(_result.data!);
     return value;
   }
@@ -88,7 +101,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = SessionResource.fromJson(_result.data!);
     return value;
   }
@@ -111,7 +128,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = GuestSessionResource.fromJson(_result.data!);
     return value;
   }
@@ -135,7 +156,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ApiResponse.fromJson(_result.data!);
     return value;
   }
@@ -159,7 +184,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<MovieResource>.fromJson(_result.data!);
     return value;
   }
@@ -183,7 +212,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<MovieResource>.fromJson(_result.data!);
     return value;
   }
@@ -207,7 +240,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<MovieResource>.fromJson(_result.data!);
     return value;
   }
@@ -231,7 +268,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<MovieResource>.fromJson(_result.data!);
     return value;
   }
@@ -254,7 +295,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = MovieResource.fromJson(_result.data!);
     return value;
   }
@@ -277,7 +322,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = MovieResource.fromJson(_result.data!);
     return value;
   }
@@ -304,7 +353,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<MovieResource>.fromJson(_result.data!);
     return value;
   }
@@ -327,7 +380,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = KeywordsResource.fromJson(_result.data!);
     return value;
   }
@@ -350,7 +407,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = TrailersResource.fromJson(_result.data!);
     return value;
   }
@@ -377,7 +438,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<MovieResource>.fromJson(_result.data!);
     return value;
   }
@@ -404,7 +469,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ApiResponse.fromJson(_result.data!);
     return value;
   }
@@ -427,7 +496,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ApiResponse.fromJson(_result.data!);
     return value;
   }
@@ -454,7 +527,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<ReviewResource>.fromJson(_result.data!);
     return value;
   }
@@ -484,7 +561,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<SeriesResource>.fromJson(_result.data!);
     return value;
   }
@@ -514,7 +595,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<SeriesResource>.fromJson(_result.data!);
     return value;
   }
@@ -538,7 +623,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<SeriesResource>.fromJson(_result.data!);
     return value;
   }
@@ -562,7 +651,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<SeriesResource>.fromJson(_result.data!);
     return value;
   }
@@ -585,7 +678,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = SeriesResource.fromJson(_result.data!);
     return value;
   }
@@ -608,7 +705,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ImagesResource.fromJson(_result.data!);
     return value;
   }
@@ -635,7 +736,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<SeriesResource>.fromJson(_result.data!);
     return value;
   }
@@ -658,7 +763,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = TrailersResource.fromJson(_result.data!);
     return value;
   }
@@ -685,7 +794,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<SeriesResource>.fromJson(_result.data!);
     return value;
   }
@@ -708,7 +821,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = SeriesResource.fromJson(_result.data!);
     return value;
   }
@@ -731,7 +848,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = KeywordsResource.fromJson(_result.data!);
     return value;
   }
@@ -758,7 +879,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<ReviewResource>.fromJson(_result.data!);
     return value;
   }
@@ -785,7 +910,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ApiResponse.fromJson(_result.data!);
     return value;
   }
@@ -811,7 +940,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = SeasonResource.fromJson(_result.data!);
     return value;
   }
@@ -837,7 +970,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ImagesResource.fromJson(_result.data!);
     return value;
   }
@@ -864,7 +1001,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = EpisodeResource.fromJson(_result.data!);
     return value;
   }
@@ -891,7 +1032,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ImagesResource.fromJson(_result.data!);
     return value;
   }
@@ -918,7 +1063,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = TrailersResource.fromJson(_result.data!);
     return value;
   }
@@ -947,7 +1096,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ApiResponse.fromJson(_result.data!);
     return value;
   }
@@ -981,7 +1134,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<MovieResource>.fromJson(_result.data!);
     return value;
   }
@@ -1004,7 +1161,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = KeywordResource.fromJson(_result.data!);
     return value;
   }
@@ -1031,7 +1192,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<MovieResource>.fromJson(_result.data!);
     return value;
   }
@@ -1055,7 +1220,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ApiResponse.fromJson(_result.data!);
     return value;
   }
@@ -1078,7 +1247,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ApiResponse.fromJson(_result.data!);
     return value;
   }
@@ -1104,7 +1277,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ApiResponse.fromJson(_result.data!);
     return value;
   }
@@ -1127,7 +1304,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = CustomListDetailsResource.fromJson(_result.data!);
     return value;
   }
@@ -1154,7 +1335,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ApiResponse.fromJson(_result.data!);
     return value;
   }
@@ -1181,7 +1366,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ApiResponse.fromJson(_result.data!);
     return value;
   }
@@ -1211,7 +1400,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<MovieResource>.fromJson(_result.data!);
     return value;
   }
@@ -1241,7 +1434,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<MovieResource>.fromJson(_result.data!);
     return value;
   }
@@ -1271,7 +1468,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<PersonResource>.fromJson(_result.data!);
     return value;
   }
@@ -1301,7 +1502,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<SeriesResource>.fromJson(_result.data!);
     return value;
   }
@@ -1324,7 +1529,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = AccountResource.fromJson(_result.data!);
     return value;
   }
@@ -1349,7 +1558,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ApiResponse.fromJson(_result.data!);
     return value;
   }
@@ -1379,7 +1592,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<SeriesResource>.fromJson(_result.data!);
     return value;
   }
@@ -1409,7 +1626,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<MovieResource>.fromJson(_result.data!);
     return value;
   }
@@ -1434,7 +1655,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ApiResponse.fromJson(_result.data!);
     return value;
   }
@@ -1464,7 +1689,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<SeriesResource>.fromJson(_result.data!);
     return value;
   }
@@ -1494,7 +1723,11 @@ class APIServiceImp extends APIService {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Pagination<MovieResource>.fromJson(_result.data!);
     return value;
   }
@@ -1510,5 +1743,22 @@ class APIServiceImp extends APIService {
       }
     }
     return requestOptions;
+  }
+
+  String _combineBaseUrls(
+    String dioBaseUrl,
+    String? baseUrl,
+  ) {
+    if (baseUrl == null || baseUrl.trim().isEmpty) {
+      return dioBaseUrl;
+    }
+
+    final url = Uri.parse(baseUrl);
+
+    if (url.isAbsolute) {
+      return url.toString();
+    }
+
+    return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
