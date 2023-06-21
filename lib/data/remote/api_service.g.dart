@@ -8,8 +8,8 @@ part of 'api_service.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _APIService extends APIService {
-  _APIService(
+class APIServiceImp extends APIService {
+  APIServiceImp(
     this._dio,
     Dio dio, {
     this.baseUrl,
