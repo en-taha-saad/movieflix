@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 import 'package:movieflix/data/remote/api_error_handler.dart';
 import 'package:movieflix/data/remote/api_service.dart';
 import 'package:movieflix/data/remote/resources/account/account_resource.dart';
@@ -349,11 +350,9 @@ class RemoteDataSourceImpl implements RemoteDataSource {
         () => apiService.discoverMovies(page, sortBy, rate, year));
   }
 
-  Future<T> wrapApiCall<T>(Future<T> Function() call) async {
+  Future<T> wrapApiCall2<T>(Future<T> Function() call) async {
     try {
-      final response = await call().then((value) {
-        print("value $value");
-      });
+      final response = await call();
       if (response is Response && response.statusCode == 200) {
         return response.data as T;
       } else {
@@ -367,9 +366,29 @@ class RemoteDataSourceImpl implements RemoteDataSource {
     } on DioException {
       throw DioException(
         requestOptions: RequestOptions(),
-        error: "dfdgdg", 
+        error: "dfdgdg",
       );
     } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future wrapApiCall(Future Function() call) async {
+    try {
+      final response = await call();
+      Logger().i(response);
+      return response;
+    } on SocketException {
+      throw TimeOut();
+    } on FormatException {
+      throw const FormatException("");
+    } on DioException {
+      throw apiErrorHandler.getFlixException(DioException(
+        requestOptions: RequestOptions(),
+        error: "dio error",
+      ));
+    } catch (e) {
+      Logger().e(e);
       rethrow;
     }
   }

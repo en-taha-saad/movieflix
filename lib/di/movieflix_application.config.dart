@@ -26,10 +26,10 @@ import 'package:movieflix/data/remote/api_error_handler_imp.dart' as _i3;
 import 'package:movieflix/data/remote/api_service.dart' as _i12;
 import 'package:movieflix/data/remote/authorization_interceptor.dart' as _i14;
 import 'package:movieflix/data/remote/remote_data_source_imp.dart' as _i17;
-import 'package:movieflix/di/injected_modules/data_source_module.dart' as _i22;
-import 'package:movieflix/di/injected_modules/database_module.dart' as _i21;
-import 'package:movieflix/di/injected_modules/network_module.dart' as _i23;
-import 'package:movieflix/di/injected_modules/shared_prefs_module.dart' as _i24;
+import 'package:movieflix/di/injected_modules/data_source_module.dart' as _i21;
+import 'package:movieflix/di/injected_modules/database_module.dart' as _i22;
+import 'package:movieflix/di/injected_modules/network_module.dart' as _i24;
+import 'package:movieflix/di/injected_modules/shared_prefs_module.dart' as _i23;
 import 'package:movieflix/repository/local_data_source.dart' as _i18;
 import 'package:movieflix/repository/preference_data_source.dart' as _i19;
 import 'package:movieflix/repository/remote_data_source.dart' as _i20;
@@ -97,10 +97,10 @@ extension GetItInjectableX on _i1.GetIt {
   }
 }
 
-class _$DatabaseModule extends _i21.DatabaseModule {}
+class _$DataSourceModule extends _i21.DataSourceModule {}
 
-class _$DataSourceModule extends _i22.DataSourceModule {}
+class _$DatabaseModule extends _i22.DatabaseModule {}
 
-class _$NetworkModule extends _i23.NetworkModule {}
+class _$SharedPrefsModule extends _i23.SharedPrefsModule {}
 
-class _$SharedPrefsModule extends _i24.SharedPrefsModule {}
+class _$NetworkModule extends _i24.NetworkModule {}

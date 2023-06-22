@@ -17,9 +17,6 @@ class AuthorizationInterceptor extends Interceptor {
       REQUEST_TOKEN: sharedPrefs.getToken(),
       SESSION_ID: sharedPrefs.getSessionId(),
     });
-    print(
-      'Final Request URL: ${options.baseUrl}${options.path}?${options.queryParameters}',
-    );
     super.onRequest(options, handler);
   }
 

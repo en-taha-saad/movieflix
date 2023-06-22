@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movieflix/data/remote/remote_data_source_imp.dart';
+import 'package:movieflix/data/remote/resources/movie/movie_resource.dart';
+import 'package:movieflix/data/remote/resources/pagination.dart';
 import 'package:movieflix/di/movieflix_application.dart';
 
 void main() async {
@@ -22,13 +24,25 @@ class MyApp extends StatelessWidget {
       ),
       themeMode: ThemeMode.dark,
       home: Scaffold(
-        body: Center(
-          child: TextButton(
-            onPressed: () {
-              remoteDataSource.getPopularMovies(1);
-            },
-            child: const Text('Click'),
-          ),
+        body: FutureBuilder<Pagination<MovieResource>>(
+          future: remoteDataSource.getPopularMovies(1),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return SingleChildScrollView(
+                child: Column(
+                    children: snapshot.data!.items!
+                        .map(
+                          (e) => ListTile(
+                            title: Text(e!.title!),
+                            subtitle: Text(e.overview!),
+                          ),
+                        )
+                        .toList()),
+              );
+            } else {
+              return const CircularProgressIndicator();
+            }
+          },
         ),
       ),
     );

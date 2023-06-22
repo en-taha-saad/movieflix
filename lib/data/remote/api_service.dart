@@ -24,7 +24,7 @@ import 'package:retrofit/retrofit.dart';
 
 part 'api_service.g.dart';
 
-@RestApi(baseUrl: "{baseUrl}")
+@RestApi(baseUrl: "{baseUrl}", parser: Parser.JsonSerializable)
 abstract class APIService {
   final Dio dio;
   APIService(this.dio);

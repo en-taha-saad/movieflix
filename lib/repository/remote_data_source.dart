@@ -28,7 +28,7 @@ abstract class RemoteDataSource {
   Future<GuestSessionResource> createGuestSession();
   Future<ApiResponse> deleteSession(String sessionId);
 
-  Future<Pagination<MovieResource>> getPopularMovies(int? page);
+  Future<Pagination> getPopularMovies(int? page);
   Future<Pagination<MovieResource>> getUpcomingMovies(int? page);
   Future<Pagination<MovieResource>> getTopRatedMovies(int? page);
   Future<Pagination<MovieResource>> getNowPlayingMovies(int? page);
