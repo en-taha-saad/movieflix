@@ -1,24 +1,8 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:movieflix/data/remote/remote_data_source_imp.dart';
+import 'package:movieflix/data/remote/resources/auth/login_request.dart';
 import 'package:movieflix/di/movieflix_application.dart';
 import 'package:movieflix/data/remote/resources/account/account_resource.dart';
-import 'package:movieflix/data/remote/resources/account/mark_as_favorite_request.dart';
-import 'package:movieflix/data/remote/resources/auth/login_request.dart';
-import 'package:movieflix/data/remote/resources/auth/session_resource.dart';
-import 'package:movieflix/data/remote/resources/list/create_list_request.dart';
-import 'package:movieflix/data/remote/resources/movie/movie_resource.dart';
-import 'package:movieflix/data/remote/resources/pagination.dart';
-import 'package:movieflix/data/remote/resources/image/images_resource.dart';
-import 'package:movieflix/data/remote/resources/keyword_resource.dart';
-import 'package:movieflix/data/remote/resources/movie/keywords_resource.dart';
-import 'package:movieflix/data/remote/resources/person/person_resource.dart';
-import 'package:movieflix/data/remote/resources/review/review_resource.dart';
-import 'package:movieflix/data/remote/resources/series/episode_resource.dart';
-import 'package:movieflix/data/remote/resources/series/season_resource.dart';
-import 'package:movieflix/data/remote/resources/series/series_resource.dart';
-import 'package:movieflix/data/remote/resources/trailer/trailers_resource.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,20 +23,24 @@ class MyApp extends StatelessWidget {
   final page = 1;
   final movieListId = 8257682;
 
-  // Future<SessionResource> request() async {
-  //   final result = await remoteDataSource.validateRequestTokenWithLogin(
-  //     LoginRequest(
-  //       username: "tahasaad",
-  //       password: "TwbapFDi21",
-  //       requestToken: "55301311c135b5e7cb85f6396e43ecff8a8d0e50",
-  //     ),
-  //   );
-  //   return remoteDataSource.createSession(result.requestToken!);
-  // }
+  Future request() async {
+    await remoteDataSource.getRequestToken();
+    final result = await remoteDataSource.validateRequestTokenWithLogin(
+      LoginRequest(
+        username: "tahasaad",
+        password: "TwbapFDi21",
+        requestToken: "a51ec6b4ab63609f93b341bbd360ea893e34752b",
+      ),
+    );
+    return remoteDataSource.createSession(result.requestToken!);
+    // await remoteDataSource.deleteSession(
+    //   "028a147d7dcfdb39b4f273f89c83a6a888c14636",
+    // );
+  }
 
   @override
   Widget build(BuildContext context) {
-    // request();
+    request();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(

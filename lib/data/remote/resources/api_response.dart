@@ -21,3 +21,20 @@ class ApiResponse {
 
   Map<String, dynamic> toJson() => _$ApiResponseToJson(this);
 }
+
+@JsonSerializable()
+class BaseResponse {
+  @JsonKey(name: 'status_code')
+  final int? statusCode;
+  @JsonKey(name: 'status_message')
+  final String? statusMessage;
+  @JsonKey(name: 'success')
+  final bool? success;
+
+  BaseResponse({this.statusCode, this.statusMessage, this.success});
+
+  factory BaseResponse.fromJson(Map<String, dynamic> json) =>
+      _$BaseResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BaseResponseToJson(this);
+}

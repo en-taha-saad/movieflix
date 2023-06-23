@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'dart:convert';
 import 'package:movieflix/data/remote/api_error_handler.dart';
 import 'package:movieflix/data/remote/resources/api_response.dart';
 import 'package:movieflix/data/remote/tmdb_status_code.dart';
@@ -10,7 +9,7 @@ import 'package:movieflix/domain/utils/flix_exception.dart';
 class ApiErrorHandlerImpl implements ApiErrorHandler {
   @override
   FlixException getFlixException(DioException dioError) {
-    final ApiResponse response = parseErrorBody(dioError.response);
+    final BaseResponse response = parseErrorBody(dioError.response!);
     if (_unauthorizedStatusCodes.contains(response.statusCode)) {
       return Unauthorized();
     } else if (_serverErrorStatusCodes.contains(response.statusCode)) {
@@ -25,9 +24,9 @@ class ApiErrorHandlerImpl implements ApiErrorHandler {
     }
   }
 
-  ApiResponse parseErrorBody(Response? errorBody) {
+  BaseResponse parseErrorBody(Response errorBody) {
     try {
-      return ApiResponse.fromJson(jsonDecode(errorBody!.data));
+      return BaseResponse.fromJson(errorBody.data);
     } catch (e) {
       rethrow;
     }

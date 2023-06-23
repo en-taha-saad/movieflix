@@ -7,8 +7,8 @@ import 'package:movieflix/data/local/shared_prefs/shared_prefs.dart';
 @injectable
 class AuthorizationInterceptor extends Interceptor {
   final String apiKey = 'de3dec8b67c5d3c973c918a22ce22801';
-  final String requestToken = '55301311c135b5e7cb85f6396e43ecff8a8d0e50';
-  final String sessionId = '19fd7a116d1fceca5d7487bd7aa4824297c286c8';
+  final String requestToken = 'a51ec6b4ab63609f93b341bbd360ea893e34752b';
+  final String sessionId = '028a147d7dcfdb39b4f273f89c83a6a888c14636';
 
   final SharedPrefs sharedPrefs;
   AuthorizationInterceptor({required this.sharedPrefs});

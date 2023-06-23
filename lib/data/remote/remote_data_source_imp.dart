@@ -416,11 +416,8 @@ class RemoteDataSourceImpl implements RemoteDataSource {
       throw TimeOut();
     } on FormatException {
       throw const FormatException("");
-    } on DioException {
-      throw apiErrorHandler.getFlixException(DioException(
-        requestOptions: RequestOptions(),
-        error: "dio error",
-      ));
+    } on DioException catch (e) {
+      throw apiErrorHandler.getFlixException(e);
     } catch (e) {
       Logger().e(e);
       rethrow;
