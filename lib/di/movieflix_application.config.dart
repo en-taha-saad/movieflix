@@ -17,22 +17,19 @@ import 'package:movieflix/data/local/database/dao/movie_dao.dart' as _i6;
 import 'package:movieflix/data/local/database/dao/series_dao.dart' as _i7;
 import 'package:movieflix/data/local/database/dao/user_dao.dart' as _i11;
 import 'package:movieflix/data/local/local_data_source_imp.dart' as _i15;
-import 'package:movieflix/data/local/preference_data_source_imp.dart' as _i16;
-import 'package:movieflix/data/local/shared_prefs/shared_prefs.dart' as _i9;
-import 'package:movieflix/data/local/shared_prefs/shared_prefs_imp.dart'
-    as _i10;
+import 'package:movieflix/data/local/shared_prefs_imp.dart' as _i10;
 import 'package:movieflix/data/remote/api_error_handler.dart' as _i13;
 import 'package:movieflix/data/remote/api_error_handler_imp.dart' as _i3;
 import 'package:movieflix/data/remote/api_service.dart' as _i12;
 import 'package:movieflix/data/remote/authorization_interceptor.dart' as _i14;
-import 'package:movieflix/data/remote/remote_data_source_imp.dart' as _i17;
-import 'package:movieflix/di/injected_modules/data_source_module.dart' as _i22;
-import 'package:movieflix/di/injected_modules/database_module.dart' as _i21;
-import 'package:movieflix/di/injected_modules/network_module.dart' as _i23;
-import 'package:movieflix/di/injected_modules/shared_prefs_module.dart' as _i24;
-import 'package:movieflix/repository/local_data_source.dart' as _i18;
-import 'package:movieflix/repository/preference_data_source.dart' as _i19;
-import 'package:movieflix/repository/remote_data_source.dart' as _i20;
+import 'package:movieflix/data/remote/remote_data_source_imp.dart' as _i16;
+import 'package:movieflix/di/injected_modules/data_source_module.dart' as _i20;
+import 'package:movieflix/di/injected_modules/database_module.dart' as _i19;
+import 'package:movieflix/di/injected_modules/network_module.dart' as _i21;
+import 'package:movieflix/di/injected_modules/shared_prefs_module.dart' as _i22;
+import 'package:movieflix/repository/local_data_source.dart' as _i17;
+import 'package:movieflix/repository/remote_data_source.dart' as _i18;
+import 'package:movieflix/repository/shared_prefs.dart' as _i9;
 import 'package:shared_preferences/shared_preferences.dart' as _i8;
 
 extension GetItInjectableX on _i1.GetIt {
@@ -81,26 +78,22 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i11.UserDao>(),
           gh<_i7.SeriesDao>(),
         ));
-    gh.factory<_i16.PreferencesDataSourceImpl>(
-        () => _i16.PreferencesDataSourceImpl(gh<_i8.SharedPreferences>()));
-    gh.factory<_i17.RemoteDataSourceImpl>(() => _i17.RemoteDataSourceImpl(
+    gh.factory<_i16.RemoteDataSourceImpl>(() => _i16.RemoteDataSourceImpl(
           gh<_i12.APIService>(),
           gh<_i13.ApiErrorHandler>(),
         ));
-    gh.singleton<_i18.LocalDataSource>(
+    gh.singleton<_i17.LocalDataSource>(
         dataSourceModule.bindLocalDataSource(gh<_i15.LocalDataSourceImpl>()));
-    gh.singleton<_i19.PreferencesDataSource>(dataSourceModule
-        .bindPreferencesDataSource(gh<_i16.PreferencesDataSourceImpl>()));
-    gh.singleton<_i20.RemoteDataSource>(
-        dataSourceModule.bindRemoteDataSource(gh<_i17.RemoteDataSourceImpl>()));
+    gh.singleton<_i18.RemoteDataSource>(
+        dataSourceModule.bindRemoteDataSource(gh<_i16.RemoteDataSourceImpl>()));
     return this;
   }
 }
 
-class _$DatabaseModule extends _i21.DatabaseModule {}
+class _$DatabaseModule extends _i19.DatabaseModule {}
 
-class _$DataSourceModule extends _i22.DataSourceModule {}
+class _$DataSourceModule extends _i20.DataSourceModule {}
 
-class _$NetworkModule extends _i23.NetworkModule {}
+class _$NetworkModule extends _i21.NetworkModule {}
 
-class _$SharedPrefsModule extends _i24.SharedPrefsModule {}
+class _$SharedPrefsModule extends _i22.SharedPrefsModule {}
