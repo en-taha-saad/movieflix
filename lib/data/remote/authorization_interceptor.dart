@@ -2,7 +2,7 @@
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:movieflix/repository/shared_prefs.dart';
+import 'package:movieflix/repository/shared_prefs_data_source.dart';
 
 @injectable
 class AuthorizationInterceptor extends Interceptor {

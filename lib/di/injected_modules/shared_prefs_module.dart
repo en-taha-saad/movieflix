@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:movieflix/repository/shared_prefs.dart';
+import 'package:movieflix/repository/shared_prefs_data_source.dart';
 import 'package:movieflix/data/local/shared_prefs_imp.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

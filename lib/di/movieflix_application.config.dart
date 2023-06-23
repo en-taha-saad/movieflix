@@ -29,7 +29,7 @@ import 'package:movieflix/di/injected_modules/network_module.dart' as _i21;
 import 'package:movieflix/di/injected_modules/shared_prefs_module.dart' as _i22;
 import 'package:movieflix/repository/local_data_source.dart' as _i17;
 import 'package:movieflix/repository/remote_data_source.dart' as _i18;
-import 'package:movieflix/repository/shared_prefs.dart' as _i9;
+import 'package:movieflix/repository/shared_prefs_data_source.dart' as _i9;
 import 'package:shared_preferences/shared_preferences.dart' as _i8;
 
 extension GetItInjectableX on _i1.GetIt {
