@@ -11,7 +11,7 @@ AuthorDetailsResource _$AuthorDetailsResourceFromJson(
     AuthorDetailsResource(
       avatarPath: json['avatar_path'] as String?,
       name: json['name'] as String?,
-      rating: json['rating'] as int?,
+      rating: (json['rating'] as num?)?.toDouble(),
       username: json['username'] as String?,
     );
 

@@ -36,6 +36,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
 
   RemoteDataSourceImpl(this.apiService, this.apiErrorHandler);
 
+// #region Auth and account
   @override
   Future<TokenResource> getRequestToken() async {
     return await wrapApiCall(() => apiService.getRequestToken());
@@ -62,6 +63,135 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   Future<ApiResponse> deleteSession(String sessionId) async {
     return await wrapApiCall(() => apiService.deleteSession(sessionId));
   }
+
+  @override
+  Future<AccountResource> getAccountDetails() async {
+    return await wrapApiCall(() => apiService.getAccountDetails());
+  }
+
+// #endregion
+
+// #region rating
+
+  @override
+  Future<ApiResponse> rateMovie(int movieId, double rate) async {
+    return await wrapApiCall(() => apiService.rateMovie(movieId, rate));
+  }
+
+  @override
+  Future<ApiResponse> rateSeries(int seriesId, double rate) async {
+    return await wrapApiCall(() => apiService.rateSeries(seriesId, rate));
+  }
+
+  @override
+  Future<ApiResponse> rateEpisode(
+      int seriesId, int season, int episode, double rate) async {
+    return await wrapApiCall(
+        () => apiService.rateEpisode(seriesId, season, episode, rate));
+  }
+
+  @override
+  Future<ApiResponse> deleteMovieRating(int movieId) async {
+    return await wrapApiCall(() => apiService.deleteMovieRating(movieId));
+  }
+
+// #endregion
+
+// #region lists
+  @override
+  Future<ApiResponse> createList(CreateListRequest createListRequest) async {
+    // TODO: implement
+    return Future(() => ApiResponse());
+    // return await wrapApiCall(() => apiService.createList(createListRequest));
+  }
+
+  @override
+  Future<ApiResponse> deleteList(int listId) async {
+    // TODO: implement
+    return Future(() => ApiResponse());
+    // return await wrapApiCall(() => apiService.deleteList(listId));
+  }
+
+  @override
+  Future<ApiResponse> clearList(int listId) async {
+    // TODO: implement
+    return Future(() => ApiResponse());
+    // return await wrapApiCall(() => apiService.clearList(listId, true));
+  }
+
+  @override
+  Future<ApiResponse> addItemsToList(int listId, int mediaId) async {
+    // TODO: implement
+    return Future(() => ApiResponse());
+    // return await wrapApiCall(() => apiService.addItemToList(listId, mediaId));
+  }
+
+  @override
+  Future<ApiResponse> removeItemsFromList(int listId, int mediaId) async {
+    // TODO: implement
+    return Future(() => ApiResponse());
+    // return await wrapApiCall(
+    //     () => apiService.removeItemFromList(listId, mediaId));
+  }
+
+  @override
+  Future<CustomListDetailsResource> getListDetails(int listId) async {
+    return await wrapApiCall(() => apiService.getListDetails(listId));
+  }
+
+// #endregion
+
+// #region favorites
+
+  @override
+  Future<ApiResponse> markAsFavorite(MarkAsFavoriteRequest requestBody) async {
+    // TODO: implement
+    return Future(() => ApiResponse());
+    // return await wrapApiCall(() => apiService.markAsFavorite(requestBody));
+  }
+
+  @override
+  Future<Pagination<SeriesResource>> getFavoriteSeries(int? page) async {
+    // TODO: implement
+    return Future(() => Pagination());
+    // return await wrapApiCall(() => apiService.getFavoriteSeries(page, ""));
+  }
+
+  @override
+  Future<Pagination<MovieResource>> getFavoriteMovies(int? page) async {
+    // TODO: implement
+    return Future(() => Pagination());
+    // return await wrapApiCall(() => apiService.getFavoriteMovies(page, ""));
+  }
+
+// #endregion
+
+// #region watchlist
+
+  @override
+  Future<ApiResponse> addToWatchlist(AddToWatchListRequest requestBody) async {
+    // TODO: implement
+    return Future(() => ApiResponse());
+    // return await wrapApiCall(() => apiService.addToWatchlist(requestBody));
+  }
+
+  @override
+  Future<Pagination<SeriesResource>> getSeriesWatchlist(int? page) async {
+    // TODO: implement
+    return Future(() => Pagination());
+    // return await wrapApiCall(() => apiService.getSeriesWatchlist(page, ""));
+  }
+
+  @override
+  Future<Pagination<MovieResource>> getMoviesWatchlist(int? page) async {
+    // TODO: implement
+    return Future(() => Pagination());
+    // return await wrapApiCall(() => apiService.getMoviesWatchlist(page, ""));
+  }
+
+// #endregion
+
+// #region movies
 
   @override
   Future<Pagination<MovieResource>> getPopularMovies(int? page) async {
@@ -100,11 +230,6 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<KeywordsResource> getMovieKeywords(int movieId) async {
-    return await wrapApiCall(() => apiService.getMovieKeywords(movieId));
-  }
-
-  @override
   Future<TrailersResource> getMovieTrailers(int movieId) async {
     return await wrapApiCall(() => apiService.getMovieTrailers(movieId));
   }
@@ -117,20 +242,14 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<ApiResponse> rateMovie(int movieId, double rate) async {
-    return await wrapApiCall(() => apiService.rateMovie(movieId, rate));
-  }
-
-  @override
-  Future<ApiResponse> deleteMovieRating(int movieId) async {
-    return await wrapApiCall(() => apiService.deleteMovieRating(movieId));
-  }
-
-  @override
   Future<Pagination<ReviewResource>> getMovieReviews(
       int movieId, int? page) async {
     return await wrapApiCall(() => apiService.getMovieReviews(movieId, page));
   }
+
+// #endregion
+
+// #region tv shows
 
   @override
   Future<Pagination<SeriesResource>> getOnTheAirSeries(int? page) async {
@@ -186,19 +305,9 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<KeywordsResource> getSeriesKeywords(int seriesId) async {
-    return await wrapApiCall(() => apiService.getSeriesKeywords(seriesId));
-  }
-
-  @override
   Future<Pagination<ReviewResource>> getSeriesReviews(
       int seriesId, int? page) async {
     return await wrapApiCall(() => apiService.getSeriesReviews(seriesId, page));
-  }
-
-  @override
-  Future<ApiResponse> rateSeries(int seriesId, double rate) async {
-    return await wrapApiCall(() => apiService.rateSeries(seriesId, rate));
   }
 
   @override
@@ -235,16 +344,18 @@ class RemoteDataSourceImpl implements RemoteDataSource {
         () => apiService.getEpisodeTrailers(seriesId, season, episode));
   }
 
-  @override
-  Future<ApiResponse> rateEpisode(
-      int seriesId, int season, int episode, double rate) async {
-    return await wrapApiCall(
-        () => apiService.rateEpisode(seriesId, season, episode, rate));
-  }
+// #endregion
+
+// #region keywords
 
   @override
   Future<KeywordResource> getKeywordById(int keywordId) async {
     return await wrapApiCall(() => apiService.getKeywordById(keywordId));
+  }
+
+  @override
+  Future<KeywordsResource> getSeriesKeywords(int seriesId) async {
+    return await wrapApiCall(() => apiService.getSeriesKeywords(seriesId));
   }
 
   @override
@@ -255,35 +366,13 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<ApiResponse> createList(CreateListRequest createListRequest) async {
-    return await wrapApiCall(() => apiService.createList(createListRequest));
+  Future<KeywordsResource> getMovieKeywords(int movieId) async {
+    return await wrapApiCall(() => apiService.getMovieKeywords(movieId));
   }
 
-  @override
-  Future<ApiResponse> deleteList(int listId) async {
-    return await wrapApiCall(() => apiService.deleteList(listId));
-  }
+// #endregion
 
-  @override
-  Future<ApiResponse> clearList(int listId) async {
-    return await wrapApiCall(() => apiService.clearList(listId, true));
-  }
-
-  @override
-  Future<CustomListDetailsResource> getListDetails(int listId) async {
-    return await wrapApiCall(() => apiService.getListDetails(listId));
-  }
-
-  @override
-  Future<ApiResponse> addItemsToList(int listId, int mediaId) async {
-    return await wrapApiCall(() => apiService.addItemToList(listId, mediaId));
-  }
-
-  @override
-  Future<ApiResponse> removeItemsFromList(int listId, int mediaId) async {
-    return await wrapApiCall(
-        () => apiService.removeItemFromList(listId, mediaId));
-  }
+// #region search and discover
 
   @override
   Future<Pagination<MovieResource>> search(String query, int? page) async {
@@ -309,73 +398,18 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   }
 
   @override
-  Future<AccountResource> getAccountDetails() async {
-    return await wrapApiCall(() => apiService.getAccountDetails());
-  }
-
-  @override
-  Future<ApiResponse> markAsFavorite(MarkAsFavoriteRequest requestBody) async {
-    return await wrapApiCall(() => apiService.markAsFavorite(requestBody));
-  }
-
-  @override
-  Future<Pagination<SeriesResource>> getFavoriteSeries(int? page) async {
-    return await wrapApiCall(() => apiService.getFavoriteSeries(page, ""));
-  }
-
-  @override
-  Future<Pagination<MovieResource>> getFavoriteMovies(int? page) async {
-    return await wrapApiCall(() => apiService.getFavoriteMovies(page, ""));
-  }
-
-  @override
-  Future<ApiResponse> addToWatchlist(AddToWatchListRequest requestBody) async {
-    return await wrapApiCall(() => apiService.addToWatchlist(requestBody));
-  }
-
-  @override
-  Future<Pagination<SeriesResource>> getSeriesWatchlist(int? page) async {
-    return await wrapApiCall(() => apiService.getSeriesWatchlist(page, ""));
-  }
-
-  @override
-  Future<Pagination<MovieResource>> getMoviesWatchlist(int? page) async {
-    return await wrapApiCall(() => apiService.getMoviesWatchlist(page, ""));
-  }
-
-  @override
   Future<Pagination<MovieResource>> discoverMovies(
       int? page, String? sortBy, double? rate, int? year) async {
     return await wrapApiCall(
         () => apiService.discoverMovies(page, sortBy, rate, year));
   }
 
-  Future<T> wrapApiCall2<T>(Future<T> Function() call) async {
-    try {
-      final response = await call();
-      if (response is Response && response.statusCode == 200) {
-        return response.data as T;
-      } else {
-        throw Exception("Error");
-        // throw apiErrorHandler.getFlixException(response);
-      }
-    } on SocketException {
-      throw TimeOut();
-    } on FormatException {
-      throw NoInternet();
-    } on DioException {
-      throw DioException(
-        requestOptions: RequestOptions(),
-        error: "dfdgdg",
-      );
-    } catch (e) {
-      rethrow;
-    }
-  }
+// #endregion
 
   Future wrapApiCall(Future Function() call) async {
     try {
       final response = await call();
+      // if (response is Response && response.statusCode == 200)
       Logger().i(response);
       return response;
     } on SocketException {

@@ -10,7 +10,7 @@ class AuthorDetailsResource {
   @JsonKey(name: 'name')
   final String? name;
   @JsonKey(name: 'rating')
-  final int? rating;
+  final double? rating;
   @JsonKey(name: 'username')
   final String? username;
 
