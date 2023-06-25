@@ -1,0 +1,22 @@
+name: repository
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.0.2 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  data:
+    path: ../data
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+flutter:
+  module:
+    androidX: true
+    androidPackage: com.example.repository
+    iosBundleIdentifier: com.example.repository

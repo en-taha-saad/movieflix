@@ -1,8 +1,8 @@
 // ignore_for_file: non_constant_identifier_names
+import 'package:injectable/injectable.dart';
 
 import 'package:dio/dio.dart';
-import 'package:injectable/injectable.dart';
-import 'package:movieflix/repository/shared_prefs_data_source.dart';
+import 'package:repository/repository.dart';
 
 @injectable
 class AuthorizationInterceptor extends Interceptor {

@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:domain/domain.dart';
 import 'package:injectable/injectable.dart';
 
-import 'package:movieflix/domain/utils/flix_exception.dart';
 import './api_error_handler.dart';
 import './resources/api_response.dart';
 import './tmdb_status_code.dart';

@@ -1,8 +1,9 @@
 import 'package:floor/floor.dart';
-import 'package:movieflix/data/local/database/entity/series_dtos/airing_today_series_dto.dart';
-import 'package:movieflix/data/local/database/entity/series_dtos/on_the_air_series_dto.dart';
-import 'package:movieflix/data/local/database/entity/series_dtos/popular_series_dto.dart';
-import 'package:movieflix/data/local/database/entity/series_dtos/top_rated_series_dto.dart';
+
+import '../entity/series_dtos/airing_today_series_dto.dart';
+import '../entity/series_dtos/on_the_air_series_dto.dart';
+import '../entity/series_dtos/popular_series_dto.dart';
+import '../entity/series_dtos/top_rated_series_dto.dart';
 
 @dao
 abstract class SeriesDao {

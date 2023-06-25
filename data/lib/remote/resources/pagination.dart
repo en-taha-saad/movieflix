@@ -1,7 +1,7 @@
-import 'package:movieflix/data/remote/resources/movie/movie_resource.dart';
-import 'package:movieflix/data/remote/resources/person/person_resource.dart';
-import 'package:movieflix/data/remote/resources/review/review_resource.dart';
-import 'package:movieflix/data/remote/resources/series/series_resource.dart';
+import 'movie/movie_resource.dart';
+import 'person/person_resource.dart';
+import 'review/review_resource.dart';
+import 'series/series_resource.dart';
 
 class Pagination<T> {
   final int? page;

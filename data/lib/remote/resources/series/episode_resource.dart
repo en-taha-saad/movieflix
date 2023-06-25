@@ -1,7 +1,8 @@
 // ignore: depend_on_referenced_packages
 import 'package:json_annotation/json_annotation.dart';
-import 'package:movieflix/data/remote/resources/series/crew_resource.dart';
-import 'package:movieflix/data/remote/resources/series/guest_star_resource.dart';
+
+import 'crew_resource.dart';
+import 'guest_star_resource.dart';
 
 part 'episode_resource.g.dart';
 

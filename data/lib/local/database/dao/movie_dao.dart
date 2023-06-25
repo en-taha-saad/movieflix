@@ -1,8 +1,9 @@
 import 'package:floor/floor.dart';
-import "package:movieflix/data/local/database/entity/movies_dtos/now_playing_movie_dto.dart";
-import "package:movieflix/data/local/database/entity/movies_dtos/popular_movie_dto.dart";
-import "package:movieflix/data/local/database/entity/movies_dtos/top_rated_movies_dto.dart";
-import "package:movieflix/data/local/database/entity/movies_dtos/upcoming_movies_dto.dart";
+
+import "../entity/movies_dtos/now_playing_movie_dto.dart";
+import "../entity/movies_dtos/popular_movie_dto.dart";
+import "../entity/movies_dtos/top_rated_movies_dto.dart";
+import "../entity/movies_dtos/upcoming_movies_dto.dart";
 
 @dao
 abstract class MovieDao {

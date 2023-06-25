@@ -1,14 +1,14 @@
 // ignore: depend_on_referenced_packages
 import 'package:json_annotation/json_annotation.dart';
-import 'package:movieflix/data/remote/resources/keyword_resource.dart';
-import 'package:movieflix/data/remote/resources/production_company_resource.dart';
-import 'package:movieflix/data/remote/resources/production_country_resource.dart';
-import 'package:movieflix/data/remote/resources/series/created_by_resource.dart';
-import 'package:movieflix/data/remote/resources/series/episode_resource.dart';
-import 'package:movieflix/data/remote/resources/series/network_resource.dart';
-import 'package:movieflix/data/remote/resources/series/season_resource.dart';
-import 'package:movieflix/data/remote/resources/series/series_episode_details_resource.dart';
-import 'package:movieflix/data/remote/resources/spoken_language_resource.dart';
+import 'package:data/remote/resources/series/series_episode_details_resource.dart';
+import '../keyword_resource.dart';
+import '../production_company_resource.dart';
+import '../production_country_resource.dart';
+import '../spoken_language_resource.dart';
+import 'created_by_resource.dart';
+import 'episode_resource.dart';
+import 'network_resource.dart';
+import 'season_resource.dart';
 
 part 'series_details_resource.g.dart';
 

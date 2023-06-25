@@ -1,5 +1,6 @@
 import 'package:floor/floor.dart';
-import 'package:movieflix/data/local/database/entity/user_dto.dart';
+
+import '../entity/user_dto.dart';
 
 @dao
 abstract class UserDao {

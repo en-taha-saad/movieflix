@@ -1,8 +1,10 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:domain/domain.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
+import 'package:repository/repository.dart';
 import './api_error_handler.dart';
 import './api_service.dart';
 import './resources/account/account_resource.dart';
@@ -26,8 +28,6 @@ import './resources/series/episode_resource.dart';
 import './resources/series/season_resource.dart';
 import './resources/series/series_resource.dart';
 import './resources/trailer/trailers_resource.dart';
-import 'package:movieflix/domain/utils/flix_exception.dart';
-import '../../repository/remote_data_source.dart';
 
 @injectable
 class RemoteDataSourceImpl implements RemoteDataSource {

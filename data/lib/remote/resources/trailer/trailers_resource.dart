@@ -1,6 +1,7 @@
 // ignore: depend_on_referenced_packages
 import 'package:json_annotation/json_annotation.dart';
-import 'package:movieflix/data/remote/resources/trailer/trailer_details_resource.dart';
+
+import 'trailer_details_resource.dart';
 
 part 'trailers_resource.g.dart';
 
