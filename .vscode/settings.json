@@ -102,7 +102,11 @@
         "lib/data/local/database/app_database.g.dart": true,
         "lib/data/remote/api_service.g.dart": true,
         "android": true,
-        "build": true
+        "build": true,
+        "data/analysis_options.yaml": true,
+        "data/.metadata": true,
+        "data/data.iml": true,
+        "data/pubspec.lock": true
     },
     "hide-files.files": [
         "lib/data/remote/resources/api_response.g.dart",
@@ -199,6 +203,10 @@
         "lib/data/local/database/app_database.g.dart",
         "lib/data/remote/api_service.g.dart",
         "android",
-        "build"
+        "build",
+        "data/analysis_options.yaml",
+        "data/.metadata",
+        "data/data.iml",
+        "data/pubspec.lock"
     ]
 }

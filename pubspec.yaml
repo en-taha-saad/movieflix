@@ -11,6 +11,8 @@ dependencies:
   floor: ^1.4.2
   flutter:
     sdk: flutter
+  data:
+    path: ./data
   get_it: ^7.6.0
   injectable: ^2.1.2
   json_serializable: ^6.7.0

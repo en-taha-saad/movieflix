@@ -1,0 +1,27 @@
+name: data
+description: A new Flutter package project.
+version: 0.0.1
+homepage: https://www.example.com
+
+environment:
+  sdk: ">=3.0.3 <4.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: ^5.2.1
+  injectable: ^2.1.2
+  retrofit: ^4.0.1
+  logger: ^1.4.0
+  json_serializable: ^6.7.0
+  # repository:
+  #   path: ../repository
+  # domain:
+  #   path: ../domain
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+flutter:
