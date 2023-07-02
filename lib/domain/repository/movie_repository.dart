@@ -36,8 +36,6 @@ abstract class MovieRepository {
 
   Future<List<MovieEntity>> search(String query, {int? page});
 
-  // TODO : Uncomment this when the series feature is ready
-  // Future<List<SeriesEntity>> searchSeries(String query, {int? page});
   Future<List<PersonEntity>> searchPeople(String query, {int? page});
 
   Future<List<MovieEntity>> searchMovies(String query, {int? page});

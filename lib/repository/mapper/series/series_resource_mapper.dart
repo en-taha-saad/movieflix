@@ -23,8 +23,13 @@ extension SeriesResourceExtensions on SeriesResource {
 }
 
 extension PaginationSeriesResourceExtensions on Pagination<SeriesResource> {
-  List<SeriesEntity?> toEntity() {
-    return items?.map((item) => item?.toEntity()).toList() ?? [];
+  List<SeriesEntity> toEntity() {
+    return items
+            ?.whereType<SeriesResource>()
+            .map((movieResource) => movieResource.toEntity())
+            .whereType<SeriesEntity>()
+            .toList() ??
+        [];
   }
 }
 

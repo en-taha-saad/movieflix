@@ -61,4 +61,6 @@ abstract class SeriesRepository {
   Future<void> cacheOnTheAirSeries(List<SeriesEntity> series);
 
   Future<void> cacheAiringTodaySeries(List<SeriesEntity> series);
+
+  Future<List<SeriesEntity>> searchSeries(String query, {int? page});
 }

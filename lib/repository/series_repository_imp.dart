@@ -1,3 +1,4 @@
+import 'package:injectable/injectable.dart';
 import 'package:movieflix/domain/entity/review_entity.dart';
 import 'package:movieflix/domain/entity/series/episode_entity.dart';
 import 'package:movieflix/domain/entity/series/season_entity.dart';
@@ -5,8 +6,18 @@ import 'package:movieflix/domain/entity/series/series_entity.dart';
 import 'package:movieflix/domain/entity/trailer_entity.dart';
 import 'package:movieflix/domain/repository/series_repository.dart';
 import 'package:movieflix/repository/local_data_source.dart';
+import 'package:movieflix/repository/mapper/keywords_resource_mapper.dart';
+import 'package:movieflix/repository/mapper/review_resource_mapper.dart';
+import 'package:movieflix/repository/mapper/series/episode_resource_mapper.dart';
+import 'package:movieflix/repository/mapper/series/images_resource_mapper.dart';
+import 'package:movieflix/repository/mapper/series/season_resource_mapper.dart';
+import 'package:movieflix/repository/mapper/series/series_dto_mapper.dart';
+import 'package:movieflix/repository/mapper/series/series_entity_mapper.dart';
+import 'package:movieflix/repository/mapper/series/series_resource_mapper.dart';
+import 'package:movieflix/repository/mapper/trailers_resource_mapper.dart';
 import 'package:movieflix/repository/remote_data_source.dart';
 
+@Injectable(as: SeriesRepository)
 class SeriesRepositoryImpl implements SeriesRepository {
   final RemoteDataSource remoteDataSource;
   final LocalDataSource localDataSource;
@@ -18,43 +29,50 @@ class SeriesRepositoryImpl implements SeriesRepository {
 
   @override
   Future<List<SeriesEntity>> getPopularSeries({int? page}) async {
-    return remoteDataSource.getPopularSeries(page).toEntity();
+    final popularSeries = await remoteDataSource.getPopularSeries(page);
+    return Future.value(popularSeries.toEntity());
   }
 
   @override
   Future<List<SeriesEntity>> getTopRatedSeries({int? page}) async {
-    return remoteDataSource.getTopRatedSeries(page).toEntity();
+    final topRatedSeries = await remoteDataSource.getTopRatedSeries(page);
+    return Future.value(topRatedSeries.toEntity());
   }
 
   @override
   Future<List<SeriesEntity>> getOnTheAirSeries({int? page}) async {
-    return remoteDataSource.getOnTheAirSeries(page).toEntity();
+    final onTheAirSeries = await remoteDataSource.getOnTheAirSeries(page);
+    return Future.value(onTheAirSeries.toEntity());
   }
 
   @override
   Future<List<SeriesEntity>> getAiringTodaySeries({int? page}) async {
-    return remoteDataSource.getAiringTodaySeries(page).toEntity();
+    final airingTodaySeries = await remoteDataSource.getAiringTodaySeries(page);
+    return Future.value(airingTodaySeries.toEntity());
   }
 
   @override
   Future<List<SeriesEntity>> getSeriesRecommendations(int seriesId,
       {int? page}) async {
-    return remoteDataSource.getSeriesRecommendations(seriesId, page).toEntity();
+    final seriesRecommendations =
+        await remoteDataSource.getSeriesRecommendations(seriesId, page);
+    return Future.value(seriesRecommendations.toEntity());
   }
 
   @override
   Future<SeriesEntity> getLatestSeries() async {
-    return remoteDataSource.getLatestSeries().toEntity();
+    final latestSeries = await remoteDataSource.getLatestSeries();
+    return Future.value(latestSeries.toEntity());
   }
 
   @override
   Future<List<String>> getSeriesKeywords(int seriesId) async {
-    return remoteDataSource.getSeriesKeywords(seriesId).toEntity();
+    return (await remoteDataSource.getSeriesKeywords(seriesId)).toEntity();
   }
 
   @override
   Future<List<ReviewEntity>> getSeriesReviews(int seriesId, {int? page}) async {
-    return remoteDataSource.getSeriesReviews(seriesId, page).toEntity();
+    return (await remoteDataSource.getSeriesReviews(seriesId, page)).toEntity();
   }
 
   @override
@@ -64,40 +82,40 @@ class SeriesRepositoryImpl implements SeriesRepository {
 
   @override
   Future<SeasonEntity> getSeasonDetails(int seriesId, int seasonNumber) async {
-    return remoteDataSource.getSeasonDetails(seriesId, seasonNumber).toEntity();
+    return (await remoteDataSource.getSeasonDetails(seriesId, seasonNumber))
+        .toEntity();
   }
 
   @override
   Future<List<String>> getSeasonImages(int seriesId, int seasonNumber) async {
-    return remoteDataSource.getSeasonImages(seriesId, seasonNumber).toEntity();
+    return (await remoteDataSource.getSeasonImages(seriesId, seasonNumber))
+        .toEntity();
   }
 
   @override
   Future<List<TrailerEntity>> getSeriesTrailers(int seriesId) async {
-    return remoteDataSource.getSeriesTrailers(seriesId).toEntity();
+    return (await remoteDataSource.getSeriesTrailers(seriesId)).toEntity();
   }
 
   @override
   Future<EpisodeEntity> getEpisodeDetails(
       int seriesId, int season, int episode) async {
-    return remoteDataSource
-        .getEpisodeDetails(seriesId, season, episode)
+    return (await remoteDataSource.getEpisodeDetails(seriesId, season, episode))
         .toEntity();
   }
 
   @override
   Future<List<String>> getEpisodeImages(
       int seriesId, int season, int episode) async {
-    return remoteDataSource
-        .getEpisodeImages(seriesId, season, episode)
+    return (await remoteDataSource.getEpisodeImages(seriesId, season, episode))
         .toEntity();
   }
 
   @override
   Future<List<TrailerEntity>> getEpisodeTrailers(
       int seriesId, int season, int episode) async {
-    return remoteDataSource
-        .getEpisodeTrailers(seriesId, season, episode)
+    return (await remoteDataSource.getEpisodeTrailers(
+            seriesId, season, episode))
         .toEntity();
   }
 
@@ -109,45 +127,41 @@ class SeriesRepositoryImpl implements SeriesRepository {
 
   @override
   Future<SeriesEntity> getSeriesDetails(int seriesId) async {
-    return remoteDataSource.getSeriesDetails(seriesId).toEntity();
+    return (await remoteDataSource.getSeriesDetails(seriesId)).toEntity();
   }
 
   @override
   Future<List<String>> getSeriesImages(int seriesId) async {
-    return remoteDataSource.getSeriesImages(seriesId).toEntity();
+    return (await remoteDataSource.getSeriesImages(seriesId)).toEntity();
   }
 
   @override
   Future<List<SeriesEntity>> getSimilarSeries(int seriesId, {int? page}) async {
-    return remoteDataSource.getSimilarSeries(seriesId, page).toEntity();
+    return (await remoteDataSource.getSimilarSeries(seriesId, page)).toEntity();
   }
 
   @override
   Stream<List<SeriesEntity>> getLocalPopularSeries() {
-    return localDataSource
-        .getPopularSeries()
-        .map((it) => it.toPopularSeriesEntity());
+    return Stream.fromFuture(localDataSource.getPopularSeries())
+        .map((series) => series.toPopularSeriesEntity());
   }
 
   @override
   Stream<List<SeriesEntity>> getLocalTopRatedSeries() {
-    return localDataSource
-        .getTopRatedSeries()
-        .map((it) => it.toTopRatedSeriesEntity());
+    return Stream.fromFuture(localDataSource.getTopRatedSeries())
+        .map((series) => series.toTopRatedSeriesEntity());
   }
 
   @override
   Stream<List<SeriesEntity>> getLocalOnTheAirSeries() {
-    return localDataSource
-        .getOnTheAirSeries()
-        .map((it) => it.toOnTheAirSeriesEntity());
+    return Stream.fromFuture(localDataSource.getOnTheAirSeries())
+        .map((series) => series.toOnTheAirSeriesEntity());
   }
 
   @override
   Stream<List<SeriesEntity>> getLocalAiringTodaySeries() {
-    return localDataSource
-        .getAiringTodaySeries()
-        .map((it) => it.toAiringTodaySeriesEntity());
+    return Stream.fromFuture(localDataSource.getAiringTodaySeries())
+        .map((series) => series.toAiringTodaySeriesEntity());
   }
 
   @override
@@ -168,5 +182,11 @@ class SeriesRepositoryImpl implements SeriesRepository {
   @override
   Future<void> cacheAiringTodaySeries(List<SeriesEntity> series) async {
     localDataSource.insertAiringTodaySeries(series.toAiringTodaySeriesDto());
+  }
+
+  @override
+  Future<List<SeriesEntity>> searchSeries(String query, {int? page}) async {
+    final seriesResults = await remoteDataSource.searchSeries(query, page);
+    return seriesResults.toEntity();
   }
 }

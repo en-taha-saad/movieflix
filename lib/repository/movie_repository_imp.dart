@@ -1,3 +1,4 @@
+import 'package:injectable/injectable.dart';
 import 'package:movieflix/domain/entity/movie/movie_entity.dart';
 import 'package:movieflix/domain/entity/person_entity.dart';
 import 'package:movieflix/domain/entity/review_entity.dart';
@@ -14,6 +15,7 @@ import 'package:movieflix/repository/remote_data_source.dart';
 
 import './mapper/person_resource_mapper.dart';
 
+@Injectable(as: MovieRepository)
 class MovieRepositoryImpl implements MovieRepository {
   final RemoteDataSource remoteDataSource;
   final LocalDataSource localDataSource;
@@ -119,13 +121,6 @@ class MovieRepositoryImpl implements MovieRepository {
     final searchResults = await remoteDataSource.search(query, page);
     return searchResults.toEntity();
   }
-
-  // TODO: Implement this
-  // @override
-  // Future<List<SeriesEntity>> searchSeries(String query, {int? page}) async {
-  //   final seriesResults = await remoteDataSource.searchSeries(query, page);
-  //   return seriesResults.toEntity();
-  // }
 
   @override
   Future<List<PersonEntity>> searchPeople(String query, {int? page}) async {
