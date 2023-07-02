@@ -5,7 +5,7 @@ import 'package:logger/logger.dart';
 import 'package:movieflix/di/movieflix_application.dart';
 import 'package:movieflix/domain/entity/account/login_body_entity.dart';
 import 'package:movieflix/domain/entity/account/token_entity.dart';
-import 'package:movieflix/domain/entity/movie/movie_entity.dart';
+import 'package:movieflix/domain/entity/series/series_entity.dart';
 import 'package:movieflix/repository/movie_repository_imp.dart';
 import 'package:movieflix/repository/series_repository_imp.dart';
 import 'package:movieflix/repository/user_repository_imp.dart';
@@ -68,11 +68,12 @@ class MyApp extends StatelessWidget {
     }
   }
 
-  Stream<List<MovieEntity>> getList() async* {
-    await for (var localMovies in movieRepositoryImpl.getLocalPopularMovies()) {
+  Stream<List<SeriesEntity>> getList() async* {
+    await for (var localMovies
+        in seriesRepositoryImpl.getLocalPopularSeries()) {
       if (localMovies.isEmpty) {
-        final remoteList = await movieRepositoryImpl.getPopularMovies(page: 1);
-        await movieRepositoryImpl.cachePopularMovies(remoteList);
+        final remoteList = await seriesRepositoryImpl.getPopularSeries(page: 1);
+        await seriesRepositoryImpl.cachePopularSeries(remoteList);
         yield remoteList;
       } else {
         yield localMovies;
@@ -80,18 +81,18 @@ class MyApp extends StatelessWidget {
     }
   }
 
-  Stream<List<MovieEntity>> moviesList = const Stream.empty();
+  Stream<List<SeriesEntity>> moviesList = const Stream.empty();
   @override
   Widget build(BuildContext context) {
-    makeAuth();
-    // moviesList = getList();
+    // makeAuth();
+    moviesList = getList();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(useMaterial3: true),
       themeMode: ThemeMode.dark,
       home: Scaffold(
         body: Center(
-          child: StreamBuilder<List<MovieEntity>>(
+          child: StreamBuilder<List<SeriesEntity>>(
             stream: moviesList,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
@@ -102,7 +103,7 @@ class MyApp extends StatelessWidget {
                       ...snapshot.data
                               ?.map(
                                 (e) => ListTile(
-                                  title: Text(e.title),
+                                  title: Text(e.name),
                                   subtitle: Image.network(e.imageUrl),
                                 ),
                               )
