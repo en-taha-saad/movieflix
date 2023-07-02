@@ -9,3 +9,7 @@ extension NullableDoubleExtensions on double? {
 extension NullableBooleanExtensions on bool? {
   bool orFalse() => this ?? false;
 }
+
+extension NullableStringExtensions on String? {
+  String orEmpty() => this ?? "";
+}
