@@ -8,6 +8,12 @@ import 'package:movieflix/domain/entity/account/token_entity.dart';
 import 'package:movieflix/domain/entity/movie/movie_entity.dart';
 import 'package:movieflix/domain/entity/series/series_entity.dart';
 import 'package:movieflix/domain/repository/user_repository.dart';
+import 'package:movieflix/repository/mapper/account/account_resource_mapper.dart';
+import 'package:movieflix/repository/mapper/account/custom_list_details_resource_mapper.dart';
+import 'package:movieflix/repository/mapper/account/token_resource_mapper.dart';
+import 'package:movieflix/repository/mapper/account/user_dto_mapper.dart';
+import 'package:movieflix/repository/mapper/movie/movie_resource_mapper.dart';
+import 'package:movieflix/repository/mapper/series/series_resource_mapper.dart';
 import 'package:movieflix/repository/remote_data_source.dart';
 import 'package:movieflix/repository/shared_prefs_data_source.dart';
 
@@ -22,13 +28,13 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<TokenEntity> getRequestToken() async {
-    return remoteDataSource.getRequestToken().toEntity();
+    return (await remoteDataSource.getRequestToken()).toEntity();
   }
 
   @override
   Future<TokenEntity> login(LoginBodyEntity loginRequest) async {
-    return remoteDataSource
-        .validateRequestTokenWithLogin(loginRequest.toResource())
+    return (await remoteDataSource
+            .validateRequestTokenWithLogin(loginRequest.toResource()))
         .toEntity();
   }
 
@@ -64,7 +70,7 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<CustomListDetailsEntity> getListDetails(int listId) async {
-    return remoteDataSource.getListDetails(listId).toEntity();
+    return (await remoteDataSource.getListDetails(listId)).toEntity();
   }
 
   @override
@@ -79,7 +85,7 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<AccountEntity> getAccountDetails() async {
-    return remoteDataSource.getAccountDetails().toEntity();
+    return (await remoteDataSource.getAccountDetails()).toEntity();
   }
 
   @override
@@ -89,12 +95,12 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<List<SeriesEntity>> getFavoriteSeries({int? page}) async {
-    return remoteDataSource.getFavoriteSeries(page).toEntity() ?? [];
+    return (await remoteDataSource.getFavoriteSeries(page)).toEntity();
   }
 
   @override
   Future<List<MovieEntity>> getFavoriteMovies({int? page}) async {
-    return remoteDataSource.getFavoriteMovies(page).toEntity() ?? [];
+    return (await remoteDataSource.getFavoriteMovies(page)).toEntity();
   }
 
   @override
@@ -104,12 +110,12 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<List<SeriesEntity>> getSeriesWatchlist({int? page}) async {
-    return remoteDataSource.getSeriesWatchlist(page).toEntity() ?? [];
+    return (await remoteDataSource.getSeriesWatchlist(page)).toEntity();
   }
 
   @override
   Future<List<MovieEntity>> getMoviesWatchlist({int? page}) async {
-    return remoteDataSource.getMoviesWatchlist(page).toEntity() ?? [];
+    return (await remoteDataSource.getMoviesWatchlist(page)).toEntity();
   }
 
   @override
