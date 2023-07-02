@@ -12,7 +12,7 @@ class PopularSeriesDto {
   @PrimaryKey(autoGenerate: false)
   final int id;
   PopularSeriesDto(
-this.id,
+    this.id,
     this.title,
     this.date,
     this.imageUrl,

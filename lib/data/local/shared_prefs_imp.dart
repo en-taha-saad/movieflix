@@ -34,4 +34,19 @@ class SharedPrefsImpl implements SharedPrefs {
   Future<void> clearSessionId() async {
     prefs.remove(_sessionIdKey);
   }
+
+  @override
+  int getLastCachingTime(String key) {
+    return prefs.getInt(key) ?? 0;
+  }
+
+  @override
+  Future<bool> isUserLoggedIn() async {
+    return prefs.getString(_sessionIdKey) != null;
+  }
+
+  @override
+  saveLastCachingTimeStamp(String key, int time) {
+    return prefs.setInt(key, time);
+  }
 }
