@@ -17,7 +17,7 @@ import 'package:movieflix/repository/mapper/series/series_resource_mapper.dart';
 import 'package:movieflix/repository/mapper/trailers_resource_mapper.dart';
 import 'package:movieflix/repository/remote_data_source.dart';
 
-@Injectable(as: SeriesRepository)
+@injectable
 class SeriesRepositoryImpl implements SeriesRepository {
   final RemoteDataSource remoteDataSource;
   final LocalDataSource localDataSource;

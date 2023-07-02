@@ -6,7 +6,7 @@ import 'package:movieflix/repository/shared_prefs_data_source.dart';
 
 @injectable
 class AuthorizationInterceptor extends Interceptor {
-  final String apiKey = 'de3dec8b67c5d3c973c918a22ce22801';
+  final String apiKey = 'a7ca42bea18eaea582f7d11dde07805e';
 
   final SharedPrefs sharedPrefs;
   AuthorizationInterceptor({required this.sharedPrefs});

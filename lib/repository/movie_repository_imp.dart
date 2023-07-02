@@ -15,7 +15,7 @@ import 'package:movieflix/repository/remote_data_source.dart';
 
 import './mapper/person_resource_mapper.dart';
 
-@Injectable(as: MovieRepository)
+@injectable
 class MovieRepositoryImpl implements MovieRepository {
   final RemoteDataSource remoteDataSource;
   final LocalDataSource localDataSource;

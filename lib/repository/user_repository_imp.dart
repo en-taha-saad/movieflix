@@ -1,3 +1,4 @@
+import 'package:injectable/injectable.dart';
 import 'package:movieflix/data/remote/resources/account/add_to_watch_list_request.dart';
 import 'package:movieflix/data/remote/resources/account/mark_as_favorite_request.dart';
 import 'package:movieflix/data/remote/resources/list/create_list_request.dart';
@@ -17,6 +18,7 @@ import 'package:movieflix/repository/mapper/series/series_resource_mapper.dart';
 import 'package:movieflix/repository/remote_data_source.dart';
 import 'package:movieflix/repository/shared_prefs_data_source.dart';
 
+@injectable
 class UserRepositoryImpl implements UserRepository {
   final RemoteDataSource remoteDataSource;
   final SharedPrefs preferencesDataSource;
